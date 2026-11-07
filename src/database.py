@@ -3,6 +3,7 @@ from contextlib import contextmanager
 from datetime import datetime
 from hashlib import sha256
 from typing import Any
+import enum
 
 from sqlalchemy import (
     DateTime,
@@ -50,6 +51,10 @@ class Base(DeclarativeBase):
     __abstract__ = True
 
 
+class RolesEnum(enum.Enum):
+    USER = "user"
+    ADMIN = "admin"
+
 class User(Base):
     __tablename__ = "users"
 
@@ -57,20 +62,12 @@ class User(Base):
 
     username: Mapped[str] = mapped_column(String(50), nullable=False)
     email: Mapped[str] = mapped_column(String, nullable=False, unique=True)
+    tg_user: Mapped[str] = mapped_column(String, nullable=False, unique=True)
     password_hash: Mapped[str] = mapped_column(String, nullable=False)
     created_at: Mapped[datetime] = mapped_column(
         DateTime, nullable=False, default=datetime.now()
     )
 
-
-
-
-def db_health_status_message() -> str:
-    with make_session() as s:
-        row = s.execute(text("SELECT 1")).scalar_one_or_none()
-        if row == 1:
-            return "All right!"
-        return "STH wrong with DB"
 
 
 def init_db() -> None:

@@ -4,7 +4,7 @@ from pathlib import Path
 from flask import Flask, jsonify, render_template, request
 
 from src.config import Config
-from src.database import db_health_status_message, init_db
+from src.database import init_db
 import random
 
 app = Flask(
@@ -17,7 +17,7 @@ app.config["SECRET_KEY"] = Config.SECRET_KEY
 app.config["DEBUG"] = Config.DEBUG
 app.json.ensure_ascii = False
 
-
+# user_routes
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -35,14 +35,11 @@ def profile():
     return render_template("profile.html")
 
 
-@app.route("/health")
-def health_flask():
-    return jsonify({"message": "Сервер работает"})
+# panel_routes
+@app.route("/panel")
+def panel_main_page():
+    return render_template("panel/panel_index.html")
 
-
-@app.route("/health/db")
-def health_db():
-    return jsonify({"message": db_health_status_message()})
 
 
 def app_run() -> None:
