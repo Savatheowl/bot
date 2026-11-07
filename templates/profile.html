@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+  <section class="page">
+    <div class="container">
+      <!-- TODO: позже здесь появится вход в аккаунт, данные пользователя и подключение к БД -->
+      <div class="profile-card">
+        <div class="profile-avatar" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/>
+          </svg>
+        </div>
+        <span class="badge">Скоро</span>
+        <h1>Профиль скоро появится</h1>
+        <p>
+          Личный кабинет уже в разработке. Здесь можно будет управлять подпиской,
+          смотреть статистику и настройки подключения.
+        </p>
+        <a class="btn btn-primary" href="{{ url_for('index') }}">На главную</a>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock content %}

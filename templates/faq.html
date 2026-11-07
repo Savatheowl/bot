@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <main>
+    <section class="page">
+      <div class="container">
+        <div class="page-head">
+          <h1>Частые вопросы</h1>
+          <p class="page-sub">
+            Собрали всё, что спрашивают чаще всего. Если вашего вопроса тут нет — напишите в Telegram.
+          </p>
+        </div>
+
+        <!-- TODO: замените вопросы и ответы на реальные -->
+        <div class="faq">
+          <details class="faq-item">
+            <summary>Как подключиться к VPN?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-body">
+              <p>Нажмите «Подключиться в Telegram» на главной странице, получите доступ и следуйте короткой инструкции. Обычно весь процесс занимает не больше пары минут.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Это безопасно?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-body">
+              <p>Да. Трафик шифруется современными протоколами, а мы не ведём логи вашей активности. Ваши данные остаются только у вас.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>На сколько устройств можно подключиться?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-body">
+              <p>Один доступ можно использовать на нескольких устройствах одновременно: телефон, ноутбук и планшет. Точное количество зависит от выбранного тарифа.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Что делать, если скорость низкая?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-body">
+              <p>Попробуйте сменить сервер на более близкий или переключить протокол на WireGuard. Если это не помогло — напишите в поддержку, подберём оптимальный сервер.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Как отменить подписку?<span class="faq-icon" aria-hidden="true"></span></summary>
+            <div class="faq-body">
+              <p>Отмена в один клик в личном кабинете или через поддержку в Telegram. Никаких скрытых списаний и сложных форм.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+{% endblock content %}
+
